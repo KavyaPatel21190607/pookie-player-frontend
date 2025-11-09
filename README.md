@@ -22,7 +22,6 @@ This is the frontend (user-facing) part of the Periodic Lyrics Player. It's what
 
 
 
-## ✨ What's Included## 📑 Table of Contents  This is a code bundle for Build Periodic Lyrics Player. The original project is available at https://www.figma.com/design/G1EJuniz6NgXYpvj9Ka0vm/Build-Periodic-Lyrics-Player.
 
 
 

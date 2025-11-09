@@ -232,7 +232,7 @@ export function Login({ onLogin, onSwitchToRegister }: LoginProps) {
         {/* Bottom decoration */}
         <div className="text-center mt-6">
           <p className="text-purple-400/70 text-sm">
-            Made with 💕 and ⚗️
+            Made by Developer K With ❤️ just for 🎀
           </p>
         </div>
       </motion.div>

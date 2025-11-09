@@ -166,15 +166,7 @@ export function Login({ onLogin, onSwitchToRegister }: LoginProps) {
               </div>
             </div>
 
-            {/* Forgot Password */}
-            <div className="text-right">
-              <button
-                type="button"
-                className="text-sm text-purple-500 hover:text-purple-700 transition-colors"
-              >
-                Forgot Password?
-              </button>
-            </div>
+
 
             {/* Login Button */}
             <motion.button

@@ -6,7 +6,8 @@ const api = axios.create({
   headers: {
     'Content-Type': 'application/json'
   },
-  timeout: 10000 // 10 seconds
+  timeout: 60000, // 60 seconds
+  withCredentials: false // Disable credentials for cross-origin
 });
 
 // Request interceptor - Add token to requests
@@ -32,12 +33,18 @@ api.interceptors.response.use(
     // Handle specific error cases
     if (error.response) {
       // Server responded with error status
+      console.error('API Error Response:', error.response.data);
+      console.error('Status:', error.response.status);
+      
       switch (error.response.status) {
         case 401:
           // Unauthorized - clear token and redirect to login
           localStorage.removeItem('token');
           localStorage.removeItem('user');
-          window.location.href = '/';
+          // Don't redirect if already on login page
+          if (window.location.pathname !== '/') {
+            window.location.href = '/';
+          }
           break;
         case 403:
           console.error('Access forbidden');
@@ -54,6 +61,9 @@ api.interceptors.response.use(
     } else if (error.request) {
       // Request made but no response
       console.error('Network error - no response from server');
+      console.error('Request URL:', error.config?.url);
+      console.error('Base URL:', error.config?.baseURL);
+      console.error('Full URL:', `${error.config?.baseURL}${error.config?.url}`);
     } else {
       // Something else happened
       console.error('Error:', error.message);
